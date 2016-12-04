@@ -27,14 +27,13 @@ namespace GenericStackLibrary {
         public void push(T value) {
             StackNode<T> newNode = new StackNode<T>(value);
             size++;
-            //if this is the first node, base and top are the same
+            //if this is the first node in stack, it is also the top
             if (size == 1) {
                 top = newNode;
                 return;
             }
             //else bottom is already established, only change top
             newNode.prevNode = top;
-            top.nextNode = newNode;
             top = newNode;
         }
 
@@ -54,7 +53,6 @@ namespace GenericStackLibrary {
                 //garbage collector will clean up popped node once de-referenced
                 if(top.prevNode != null) {
                     top = top.prevNode;
-                    top.nextNode = null;
                 }
                 size--;
                 return returnValue;

@@ -18,13 +18,12 @@ namespace GenericStackLibrary {
         /// <param name="value"></param>
         public StackNode(T value) {
             this.value = value;
-            prevNode = nextNode = null;
+            prevNode = null;
         }
 
 
 
         public T value { get; set; }
         public StackNode<T> prevNode { get; set; }
-        public StackNode<T> nextNode { get; set; }
     }
 }
